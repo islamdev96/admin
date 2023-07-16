@@ -1,8 +1,6 @@
 class AppLink {
 //
-static const String server = "https://exfai.com/ExfaiPHP";
-
-
+  static const String server = "https://exfai.com/PHP";
 
   static const String test = "$server/test.php";
 
@@ -70,20 +68,18 @@ static const String server = "https://exfai.com/ExfaiPHP";
   static const String viewarchiveOrders = "$server/orders/archive.php";
   static const String detailsOrders = "$server/orders/details.php";
   static const String viewacceptedOrders = "$server/orders/viewaccepted.php";
- static const String approveOrders = "$server/orders/approve.php";
+  static const String approveOrders = "$server/orders/approve.php";
   static const String prepare = "$server/orders/prepare.php";
- static const String doneOrders = "$server/orders/done.php";
+  static const String doneOrders = "$server/orders/done.php";
 //Categories
- static const String categoriesview = "$server/categories/view.php";
+  static const String categoriesview = "$server/categories/view.php";
   static const String categoriesadd = "$server/categories/add.php";
-   static const String categoriesedit= "$server/categories/edit.php";
-    static const String categoriesdelete = "$server/categories/delete.php";
-
+  static const String categoriesedit = "$server/categories/edit.php";
+  static const String categoriesdelete = "$server/categories/delete.php";
 
 //Items
- static const String itemsview = "$server/items/view.php";
+  static const String itemsview = "$server/items/view.php";
   static const String itemsadd = "$server/items/add.php";
-   static const String itemsedit= "$server/items/edit.php";
-    static const String itemsdelete = "$server/items/delete.php";
+  static const String itemsedit = "$server/items/edit.php";
+  static const String itemsdelete = "$server/items/delete.php";
 }
-
