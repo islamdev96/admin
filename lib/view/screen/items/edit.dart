@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:exfai/all_export.dart';
 import 'package:exfai/controller/items/edit_controller.dart';
 import 'package:exfai/core/shared/customdropdownsearch.dart';
