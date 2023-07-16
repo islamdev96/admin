@@ -12,12 +12,12 @@ class OrdersScreen extends StatelessWidget {
     Get.put(OrderScreenControllerImp());
     return GetBuilder<OrderScreenControllerImp>(
         builder: (controller) => Scaffold(
-              appBar: AppBar(title: Text("Orders"),),
+              appBar: AppBar(
+                title: const Text("Orders"),
+              ),
               //drawer: Drawer(),
               bottomNavigationBar: const CustomBottomAppBarHome(),
-              body:  controller.listPage.elementAt(controller.currentpage),
-             
-               
+              body: controller.listPage.elementAt(controller.currentpage),
             ));
   }
 }

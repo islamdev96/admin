@@ -1,4 +1,3 @@
-
 import '../../../all_export.dart';
 
 class CardOrdersListArchive extends GetView<OrdersArchiveController> {
@@ -65,16 +64,18 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
                     textColor: AppColor.secondColor,
                     child: const Text("Details"),
                   ),
-                  SizedBox(width: 10,),
-                 if (listdata.ordersRating =="0")MaterialButton(
-                    onPressed: () {
-                     // showDialogRating(context,listdata.ordersId!);
-                     
-                    },
-                    color: AppColor.thirdColor,
-                    textColor: AppColor.secondColor,
-                    child: const Text("Rating"),
+                  const SizedBox(
+                    width: 10,
                   ),
+                  if (listdata.ordersRating == "0")
+                    MaterialButton(
+                      onPressed: () {
+                        // showDialogRating(context,listdata.ordersId!);
+                      },
+                      color: AppColor.thirdColor,
+                      textColor: AppColor.secondColor,
+                      child: const Text("Rating"),
+                    ),
                 ],
               ),
             ],

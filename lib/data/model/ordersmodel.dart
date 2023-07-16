@@ -29,7 +29,7 @@ class OrdersModel {
       this.ordersPrice,
       this.ordersTotalprice,
       this.ordersCoupon,
-      this .ordersRating,
+      this.ordersRating,
       this.ordersNoterating,
       this.ordersPaymentmethod,
       this.ordersStatus,
@@ -75,8 +75,8 @@ class OrdersModel {
     data['orders_price'] = ordersPrice;
     data['orders_totalprice'] = ordersTotalprice;
     data['orders_coupon'] = ordersCoupon;
-    data['orders_rating']=this.ordersRating;
-    data['orders_noterating']=this.ordersNoterating;
+    data['orders_rating'] = ordersRating;
+    data['orders_noterating'] = ordersNoterating;
     data['orders_paymentmethod'] = ordersPaymentmethod;
     data['orders_status'] = ordersStatus;
     data['orders_datetime'] = ordersDatetime;

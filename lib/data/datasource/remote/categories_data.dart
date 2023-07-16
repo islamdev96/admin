@@ -1,6 +1,6 @@
-
-
 import 'dart:io';
+
+import 'package:dartz/dartz.dart';
 
 import '../../../../all_export.dart';
 
@@ -11,20 +11,25 @@ class CategoriesData {
     var response = await crud.postData(AppLink.categoriesview, {});
     return response.fold((l) => l, (r) => r);
   }
-   add(Map data,File file) async {
-    var response = await crud.addRequestWithImageOne(AppLink.categoriesadd, data,file);
+
+  add(Map data, File file) async {
+    var response =
+        await crud.addRequestWithImageOne(AppLink.categoriesadd, data, file);
     return response.fold((l) => l, (r) => r);
   }
-   delete(Map data) async {
+
+  delete(Map data) async {
     var response = await crud.postData(AppLink.categoriesdelete, data);
     return response.fold((l) => l, (r) => r);
   }
-   edit(Map data,[File? file]) async {
-    var response;
-    if (file==null){
-     response = await crud.postData(AppLink.categoriesedit, data);
-    }else{
-       response = await crud.addRequestWithImageOne(AppLink.categoriesedit, data,file);
+
+  edit(Map data, [File? file]) async {
+    Either<StatusRequest, Map> response;
+    if (file == null) {
+      response = await crud.postData(AppLink.categoriesedit, data);
+    } else {
+      response =
+          await crud.addRequestWithImageOne(AppLink.categoriesedit, data, file);
     }
     return response.fold((l) => l, (r) => r);
   }
