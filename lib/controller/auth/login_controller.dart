@@ -11,25 +11,25 @@ abstract class LoginController extends GetxController {
 class LoginControllerImp extends LoginController {
   LoginData loginData = LoginData(Get.find());
 
-  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   late TextEditingController email;
   late TextEditingController password;
 
-  bool isshowpassword = true;
+  bool isShowPassword = true;
 
   MyServices myServices = Get.find();
 
   StatusRequest statusRequest = StatusRequest.none;
 
   showPassword() {
-    isshowpassword = isshowpassword == true ? false : true;
+    isShowPassword = isShowPassword == true ? false : true;
     update();
   }
 
   @override
   login() async {
-    if (formstate.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
       var response = await loginData.postdata(email.text, password.text);
@@ -37,26 +37,26 @@ class LoginControllerImp extends LoginController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           // data.addAll(response['data']);
-          if (response['data']['admin_approve'] == "1") {
+          if (response['data']['users_approve'] == "1") {
             myServices.sharedPreferences
-                .setString("id", response['data']['admin_id']);
+                .setString("id", response['data']['users_id']);
             String userid = myServices.sharedPreferences.getString("id")!;
             myServices.sharedPreferences
-                .setString("username", response['data']['admin_name']);
+                .setString("username", response['data']['users_name']);
             myServices.sharedPreferences
-                .setString("email", response['data']['admin_email']);
+                .setString("email", response['data']['users_email']);
             myServices.sharedPreferences
-                .setString("phone", response['data']['admin_phone']);
+                .setString("phone", response['data']['users_phone']);
             myServices.sharedPreferences.setString("step", "2");
 
-            FirebaseMessaging.instance.subscribeToTopic("admin");
-            FirebaseMessaging.instance.subscribeToTopic("admin$userid");
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("users$userid");
 
             Get.offNamed(AppRoute.homepage);
-          } //else {
-           // Get.toNamed(AppRoute.verfiyCodeSignUp,
-               // arguments: {"email": email.text});
-         // }
+          } else {
+            Get.toNamed(AppRoute.verfiyCodeSignUp,
+                arguments: {"email": email.text});
+          }
         } else {
           Get.defaultDialog(
               title: "ُWarning", middleText: "Email Or Password Not Correct");

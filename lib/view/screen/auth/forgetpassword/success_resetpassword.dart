@@ -1,4 +1,4 @@
-import '../../../../all_export.dart';
+import '../../../../../all_export.dart';
 
 class SuccessResetPassword extends StatelessWidget {
   const SuccessResetPassword({Key? key}) : super(key: key);
@@ -27,17 +27,17 @@ class SuccessResetPassword extends StatelessWidget {
             size: 200,
             color: AppColor.primaryColor,
           )),
-          Text("37".tr,
+          Text("congratulations".tr,
               style: Theme.of(context)
                   .textTheme
                   .displayLarge!
                   .copyWith(fontSize: 30)),
-          Text("36".tr),
+          Text("passwordResetSuccess".tr),
           const Spacer(),
           SizedBox(
             width: double.infinity,
-            child: CustomButtomAuth(
-                text: "31".tr,
+            child: CustomButtonAuth(
+                text: "goToLogin".tr,
                 onPressed: () {
                   controller.goToPageLogin();
                 }),

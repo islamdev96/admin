@@ -1,4 +1,4 @@
-import '../../../all_export.dart';
+import '../../../../all_export.dart';
 
 class SuccessSignUp extends StatelessWidget {
   const SuccessSignUp({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class SuccessSignUp extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('32'.tr,
+        title: Text('success'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -21,23 +21,23 @@ class SuccessSignUp extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(15),
         child: Column(children: [
-          const Center(
+          Center(
               child: Icon(
             Icons.check_circle_outline,
-            size: 200,
+            size: 200.spMax,
             color: AppColor.primaryColor,
           )),
-          Text("37".tr,
+          Text("congratulations".tr,
               style: Theme.of(context)
                   .textTheme
                   .displayLarge!
-                  .copyWith(fontSize: 30)),
-          Text("38".tr),
+                  .copyWith(fontSize: 30.sp)),
+          Text("successfullyRegistered".tr),
           const Spacer(),
           SizedBox(
             width: double.infinity,
-            child: CustomButtomAuth(
-                text: "31".tr,
+            child: CustomButtonAuth(
+                text: "goToLogin".tr,
                 onPressed: () {
                   controller.goToPageLogin();
                 }),

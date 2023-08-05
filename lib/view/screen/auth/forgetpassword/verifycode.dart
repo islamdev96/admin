@@ -1,4 +1,4 @@
-import '../../../../all_export.dart';
+import '../../../../../all_export.dart';
 
 class VerfiyCode extends StatelessWidget {
   const VerfiyCode({Key? key}) : super(key: key);

@@ -1,7 +1,20 @@
 // ignore_for_file: duplicate_export
 
 export 'linkapi.dart';
+
+export 'package:exfai/controller/auth/verfiycodesignup_controller.dart';
+
 export 'main.dart';
+export 'package:exfai/data/datasource/remote/auth/signup.dart';
+export 'package:exfai/data/datasource/remote/auth/verfiycodesignup.dart';
+export 'package:exfai/controller/onboarding_controller.dart';
+export 'package:flutter_screenutil/flutter_screenutil.dart';
+export 'package:exfai/view/widget/onboarding/custombutton.dart';
+export 'package:exfai/view/widget/onboarding/customslider.dart';
+export 'package:exfai/view/widget/onboarding/dotcontroller.dart';
+export 'package:exfai/core/functions/validinput%20copy.dart';
+export 'package:exfai/controller/auth/signup_controller.dart';
+
 export 'routes.dart';
 export 'bindings/intialbindings.dart';
 export 'core/localization/changelocal.dart';
@@ -34,20 +47,10 @@ export 'package:exfai/view/screen/auth/forgetpassword/resetpassword.dart';
 export 'package:exfai/view/screen/auth/forgetpassword/success_resetpassword.dart';
 export 'package:exfai/view/screen/auth/forgetpassword/verifycode.dart';
 export 'package:exfai/view/screen/auth/login.dart';
-//export 'package:exfai/view/screen/auth/signup.dart';
 export 'package:exfai/view/screen/auth/success_signup.dart';
-//export 'package:exfai/view/screen/auth/verifycodesignup.dart';
-//export 'package:exfai/view/screen/cart.dart';
-////export 'package:exfai/view/screen/checkout.dart';
-//export 'package:exfai/view/screen/homescreen.dart';
-//export 'package:exfai/view/screen/items.dart';
-export 'package:exfai/view/screen/language.dart';
-//export 'package:exfai/view/screen/myfavorite.dart';
-//export 'package:exfai/view/screen/onboarding.dart';
 export 'package:exfai/view/screen/orders/archive.dart';
 export 'package:exfai/view/screen/orders/details.dart';
 export 'package:exfai/view/screen/orders/pending.dart';
-//export 'package:exfai/view/screen/productdetails.dart';
 export 'package:get/get.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter/material.dart';
@@ -68,7 +71,6 @@ export 'package:exfai/controller/auth/login_controller.dart';
 export 'package:exfai/core/functions/alertexitapp.dart';
 export 'package:exfai/view/widget/auth/logoauth.dart';
 export 'package:exfai/view/widget/auth/textsignup.dart';
-//export 'package:exfai/controller/auth/signup_controller.dart';
 export 'package:exfai/controller/auth/successsignup_controller.dart';
 
 export 'core/functions/checkinternet.dart';
@@ -115,7 +117,6 @@ export 'package:exfai/view/screen/home.dart';
 
 //export 'package:exfai/view/widget/home/listitemshome.dart';
 //export 'package:exfai/view/widget/items/customlistitems.dart';
-export 'package:exfai/view/widget/language/custombuttomlang.dart';
 //export 'package:exfai/view/widget/myfavorite/customlistfavoriteitems.dart';
 export 'package:exfai/controller/notification_controller.dart';
 //export 'package:exfai/view/widget/onboarding/custombutton.dart';

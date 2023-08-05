@@ -1,4 +1,4 @@
-import '../../../../all_export.dart';
+import '../../../../../all_export.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class ForgetPassword extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('14'.tr,
+        title: Text('forgetPassword'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -21,35 +21,34 @@ class ForgetPassword extends StatelessWidget {
           builder: (controller) => HandlingDataRequest(
               statusRequest: controller.statusRequest,
               widget: Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 30.w),
                 child: Form(
                   key: controller.formstate,
                   child: ListView(children: [
-                    const SizedBox(height: 20),
-                    CustomTextTitleAuth(text: "27".tr),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 20.h),
+                    CustomTextTitleAuth(text: "checkEmail".tr),
+                    SizedBox(height: 10.h),
                     CustomTextBodyAuth(
                         // please Enter Your Email Address To Recive A verification code
-                        text: "29".tr),
-                    const SizedBox(height: 15),
+                        text: "ReciveAVerificationCode".tr),
+                    SizedBox(height: 15.h),
                     CustomTextFormAuth(
                       isNumber: false,
                       valid: (val) {
                         return null;
                       },
                       mycontroller: controller.email,
-                      hinttext: "12".tr,
+                      hinttext: "enterYourEmail".tr,
                       iconData: Icons.email_outlined,
-                      labeltext: "18".tr,
+                      labeltext: "email".tr,
                       // mycontroller: ,
                     ),
-                    CustomButtomAuth(
-                        text: "30".tr,
+                    CustomButtonAuth(
+                        text: "check".tr,
                         onPressed: () {
                           controller.checkemail();
                         }),
-                    const SizedBox(height: 40),
+                    SizedBox(height: 40.h),
                   ]),
                 ),
               ))),

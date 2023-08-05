@@ -1,4 +1,4 @@
-import '../../../../all_export.dart';
+import '../../../../../all_export.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class ResetPassword extends StatelessWidget {
                     CustomTextFormAuth(
                       isNumber: false,
                       valid: (val) {
-                        return validInput(val!, 3, 40, "password");
+                        return validateInput(val!, 3, 40, "password");
                       },
                       mycontroller: controller.password,
                       hinttext: "13".tr,
@@ -46,7 +46,7 @@ class ResetPassword extends StatelessWidget {
                       isNumber: false,
 
                       valid: (val) {
-                        return validInput(val!, 3, 40, "password");
+                        return validateInput(val!, 3, 40, "password");
                       },
                       mycontroller: controller.repassword,
                       hinttext: "Re ${"13".tr}",
@@ -54,7 +54,7 @@ class ResetPassword extends StatelessWidget {
                       labeltext: "19".tr,
                       // mycontroller: ,
                     ),
-                    CustomButtomAuth(
+                    CustomButtonAuth(
                         text: "33".tr,
                         onPressed: () {
                           controller.goToSuccessResetPassword();

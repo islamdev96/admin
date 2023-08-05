@@ -1,4 +1,4 @@
-import '../../../all_export.dart';
+import '../../../../all_export.dart';
 
 class CustomTextBodyAuth extends StatelessWidget {
   final String text;
@@ -7,7 +7,7 @@ class CustomTextBodyAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 25),
+      margin: EdgeInsets.symmetric(horizontal: 25.w),
       child: Text(
         text,
         textAlign: TextAlign.center,

@@ -1,4 +1,4 @@
-import '../../../all_export.dart';
+import '../../../../all_export.dart';
 
 class LogoAuth extends StatelessWidget {
   const LogoAuth({Key? key}) : super(key: key);
@@ -6,7 +6,7 @@ class LogoAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-        radius: 70,
+        radius: 70.spMax,
         backgroundColor: Colors.red,
         child: Padding(
           padding: const EdgeInsets.all(0), // Border radius

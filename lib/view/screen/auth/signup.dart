@@ -1,45 +1,25 @@
 import '../../../../../all_export.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class SignUp extends StatelessWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginControllerImp());
+    Get.put(SignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              'login'.tr,
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(color: AppColor.grey),
-            ),
-            SizedBox(width: 75.w),
-            InkWell(
-              onTap: () {
-                Get.toNamed('/homepage');
-              },
-              child: Text(
-                'skip'.tr,
-                style: Theme.of(context)
-                    .textTheme
-                    .displayLarge!
-                    .copyWith(color: Colors.blue),
-              ),
-            ),
-          ],
-        ),
+        title: Text('signUp'.tr,
+            style: Theme.of(context)
+                .textTheme
+                .displayLarge!
+                .copyWith(color: AppColor.grey)),
       ),
       body: WillPopScope(
           onWillPop: alertExitApp,
-          child: GetBuilder<LoginControllerImp>(
+          child: GetBuilder<SignUpControllerImp>(
             builder: (controller) => HandlingDataRequest(
                 statusRequest: controller.statusRequest,
                 widget: Container(
@@ -48,25 +28,46 @@ class Login extends StatelessWidget {
                   child: Form(
                     key: controller.formKey,
                     child: ListView(children: [
-                      const LogoAuth(),
                       const SizedBox(height: 20),
                       CustomTextTitleAuth(text: "welcomeBack".tr),
                       const SizedBox(height: 10),
-                      CustomTextBodyAuth(text: "signInYourEmailAndPassword".tr),
+                      CustomTextBodyAuth(text: "signUpEmailAndPassword".tr),
                       const SizedBox(height: 15),
+                      CustomTextFormAuth(
+                        isNumber: false,
+                        valid: (val) {
+                          return validateInput(val!, 1, 50, "username");
+                        },
+                        mycontroller: controller.usernameController,
+                        hinttext: "enterYourUsername".tr,
+                        iconData: Icons.person_outline,
+                        labeltext: "username".tr,
+                        // mycontroller: ,
+                      ),
                       CustomTextFormAuth(
                         isNumber: false,
 
                         valid: (val) {
                           return validateInput(val!, 1, 50, "email");
                         },
-                        mycontroller: controller.email,
+                        mycontroller: controller.emailController,
                         hinttext: "enterYourEmail".tr,
                         iconData: Icons.email_outlined,
                         labeltext: "email".tr,
                         // mycontroller: ,
                       ),
-                      GetBuilder<LoginControllerImp>(
+                      CustomTextFormAuth(
+                        isNumber: true,
+                        valid: (val) {
+                          return validateInput(val!, 3, 15, "phone");
+                        },
+                        mycontroller: controller.phoneController,
+                        hinttext: "enterYourPhone".tr,
+                        iconData: Icons.phone_android_outlined,
+                        labeltext: "phone".tr,
+                        // mycontroller: ,
+                      ),
+                      GetBuilder<SignUpControllerImp>(
                         builder: (controller) => CustomTextFormAuth(
                           obscureText: controller.isShowPassword,
                           onTapIcon: () {
@@ -76,35 +77,25 @@ class Login extends StatelessWidget {
                           valid: (val) {
                             return validateInput(val!, 1, 50, "password");
                           },
-                          mycontroller: controller.password,
+                          mycontroller: controller.passwordController,
                           hinttext: "enterYourPassword".tr,
                           iconData: Icons.lock_outline,
                           labeltext: "password".tr,
-                          // mycontroller: ,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          controller.goToForgetPassword();
-                        },
-                        child: Text(
-                          "forgetPassword".tr,
-                          textAlign: TextAlign.right,
                         ),
                       ),
                       CustomButtonAuth(
-                          text: "signIn".tr,
+                          text: "signUp".tr,
                           onPressed: () {
-                            controller.login();
+                            controller.signUp();
                           }),
                       const SizedBox(height: 40),
                       CustomTextSignUpOrSignIn(
-                        textone: "dontHaveAnAccount".tr,
-                        texttwo: "signUp".tr,
+                        textone: "haveAnAccount".tr,
+                        texttwo: "signIn".tr,
                         onTap: () {
-                          controller.goToSignUp();
+                          controller.goToSignIn();
                         },
-                      )
+                      ),
                     ]),
                   ),
                 )),

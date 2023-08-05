@@ -1,4 +1,4 @@
-import '../../../all_export.dart';
+import '../../../../all_export.dart';
 
 class CustomTextSignUpOrSignIn extends StatelessWidget {
   final String textone;
