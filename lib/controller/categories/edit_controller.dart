@@ -20,7 +20,7 @@ StatusRequest? statusRequest=StatusRequest.none;
 File?  file;
 chooseImage()async{
  
-   file= await fileUploadGallery(true);
+   file= await fileUploadGallery( );
    update();
 }
   editData() async {

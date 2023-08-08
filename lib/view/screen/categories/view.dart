@@ -6,7 +6,8 @@ class CategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CategoriesController());
+    final controller = Get.put(CategoriesController());
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Categories'),
@@ -18,69 +19,69 @@ class CategoriesView extends StatelessWidget {
         child: const Icon(Icons.add),
       ),
       body: GetBuilder<CategoriesController>(
-          builder: (controller) => HandlingDataView(
-              statusRequest: controller.statusRequest,
-              widget: WillPopScope(
-                onWillPop: () {
-                  return controller.myback();
-                },
-                child: Center(
-                    child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: ListView.builder(
-                          itemCount: controller.data.length,
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                controller.goToPageEdit(controller.data[index]);
-                              },
-                              child: Card(
-                                  child: Row(children: [
-                                Expanded(
-                                    flex: 2,
-                                    child: Container(
-                                      padding: const EdgeInsets.all(4),
-                                      child: SvgPicture.network(
-                                        height: 80,
-                                        "${AppLink.imagestCategories}/${controller.data[index].categoriesImage}",
-                                      ),
-                                    )),
-                                Expanded(
-                                    flex: 3,
-                                    child: ListTile(
-                                      trailing: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          IconButton(
-                                              icon: const Icon(
-                                                  Icons.delete_outline),
-                                              onPressed: () {
-                                                Get.defaultDialog(
-                                                    title: "تحذير",
-                                                    middleText:
-                                                        "هل أنت متأكد من عملية الحذف",
-                                                    onCancel: () {},
-                                                    onConfirm: () {
-                                                      controller.deleteCategory(
-                                                          controller.data[index]
-                                                              .categoriesId!,
-                                                          controller.data[index]
-                                                              .categoriesImage!);
-                                                      Get.back();
-                                                    });
-                                              }),
-                                        ],
-                                      ),
-                                      subtitle: Text(controller
-                                          .data[index].categoriesDatetime!),
-                                      title: Text(controller
-                                          .data[index].categoriesName!),
-                                    ))
-                              ])),
+        builder: (controller) => HandlingDataView(
+          statusRequest: controller.statusRequest,
+          widget: WillPopScope(
+            onWillPop: () {
+              return controller.myback();
+            },
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: ListView.builder(
+                  itemCount: controller.data.length,
+                  itemBuilder: (context, index) {
+                    final category = controller.data[index];
+
+                    return Card(
+                      child: ListTile(
+                        onTap: () {
+                          controller.goToPageEdit(category);
+                        },
+                        leading: Container(
+                          padding: const EdgeInsets.all(4),
+                          child: SvgPicture.network(
+                            "${AppLink.imagestCategories}/${category.categoriesImage}",
+                            height: 80,
+                          ),
+                        ),
+                        title: Text(category.categoriesName!),
+                        subtitle: Text(category.categoriesDatetime!),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete_outline),
+                          onPressed: () {
+                            _showDeleteConfirmationDialog(
+                              controller,
+                              int.parse(category.categoriesId!),
+                              category.categoriesImage!,
                             );
                           },
-                        ))),
-              ))),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showDeleteConfirmationDialog(
+    CategoriesController controller,
+    int categoryId,
+    String categoryImage,
+  ) {
+    Get.defaultDialog(
+      title: "تحذير",
+      middleText: "هل أنت متأكد من عملية الحذف",
+      onCancel: () {},
+      onConfirm: () {
+        controller.deleteCategory(categoryId.toString(), categoryImage);
+        Get.back();
+      },
     );
   }
 }

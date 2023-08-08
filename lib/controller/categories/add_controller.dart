@@ -1,10 +1,8 @@
 import 'dart:io';
-
+import 'package:exfai/all_export.dart';
 import 'package:exfai/controller/categories/view_controller.dart';
 import 'package:exfai/core/functions/uploadfile.dart';
 import 'package:exfai/data/datasource/remote/categories_data.dart';
-
-import '../../all_export.dart';
 
 class CategoriesAddController extends GetxController {
   CategoriesData categoriesData = CategoriesData(Get.find());
@@ -14,14 +12,14 @@ class CategoriesAddController extends GetxController {
   StatusRequest? statusRequest = StatusRequest.none;
 
   File? file;
-  chooseImage() async {
-    file = await fileUploadGallery(true);
+  chooseImage() async { 
+    file = await fileUploadGallery();
     update();
   }
 
   addData() async {
     if (formState.currentState!.validate()) {
-      if (file == null) Get.snackbar("Warning", "Please Choose Image SVG");
+      if (file == null) Get.snackbar("Warning", "Please Choose an Image");
 
       statusRequest = StatusRequest.loading;
       update();
@@ -32,15 +30,16 @@ class CategoriesAddController extends GetxController {
       statusRequest = handlingData(response);
 
       if (StatusRequest.success == statusRequest) {
-        // Start backend
         if (response['status'] == "success") {
           Get.offNamed(AppRoute.categoriesview);
           CategoriesController c = Get.find();
           c.getData();
         } else {
           statusRequest = StatusRequest.failure;
+          print(response / 'status');
         }
-        // End
+                  print(response/ 'status');
+
       }
       update();
     }

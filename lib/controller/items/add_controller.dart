@@ -41,7 +41,7 @@ chooseImageCamera()async{
 }
 chooseImageGallery()async{
  
-   file= await fileUploadGallery(false);
+   file= await fileUploadGallery( );
    update();
 }
   addData() async {

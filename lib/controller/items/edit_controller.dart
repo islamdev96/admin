@@ -33,7 +33,7 @@ class ItemsEditController extends GetxController {
   }
 
   chooseImage() async {
-    file = await fileUploadGallery(true);
+    file = await fileUploadGallery( );
     update();
   }
 
